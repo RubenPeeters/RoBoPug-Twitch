@@ -24,6 +24,7 @@ class basic(commands.Cog):
     async def botuptime(self, ctx: commands.Context):
         """Tells you how long the bot has been up for."""
         try:
+            self.basic_logger.info(f"Bot uptime: {self.bot.get_uptime(which=self.bot.bot_uptime)}!")
             await ctx.send(f"Bot uptime: {self.bot.get_uptime(which=self.bot.bot_uptime)}!")
         except Exception as e:
             self.basic_logger.error(e)

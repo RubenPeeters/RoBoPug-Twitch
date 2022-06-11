@@ -1,5 +1,5 @@
 .env
 Pipfile
 Pipfile.lock
-.cache-1197624621
+.cache*
 logs/rbotp.log
