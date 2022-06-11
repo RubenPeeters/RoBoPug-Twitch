@@ -23,6 +23,7 @@ CHANNEL=
 ```
 
 and fill it in using your specific credentials. More info on how to get your token and registering your app can be found [here.](https://dev.twitch.tv/docs/authentication/register-app)
+Get your oauth token [here.](https://twitchapps.com/tmi/)
 
 ## How to run
 
