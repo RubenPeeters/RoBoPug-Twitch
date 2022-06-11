@@ -1,11 +1,13 @@
-from twitchio.ext import commands
 import os
-import json
+import logging
+from twitchio.ext import commands
+
 
 
 class basic(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
+        self.basic_logger = logging.getLogger('rbotp.basic')
 
 
     @commands.command()
@@ -16,7 +18,7 @@ class basic(commands.Cog):
     async def event_message(self, message):
         if message.echo:
             return
-        print(message.content)
+        # print(message.content)
 
     @commands.command()
     async def botuptime(self, ctx: commands.Context):
@@ -24,16 +26,8 @@ class basic(commands.Cog):
         try:
             await ctx.send(f"Bot uptime: {self.bot.get_uptime(which=self.bot.bot_uptime)}!")
         except Exception as e:
-            print(e)
+            self.basic_logger.error(e)
     
-    # @commands.command()
-    # async def uptime(self, ctx: commands.Context):
-    #     """Tells you how long the streamer has been up for."""
-    #     try:
-    #         await ctx.send(f"Uptime: {self.bot.get_uptime(which=self.bot.uptime)}!")
-    #     except Exception as e:
-    #         print(e)
-        
     
 
 

@@ -1,6 +1,7 @@
 import os
 import traceback
 import datetime
+import logging
 from twitchio.ext import commands
 
 class Bot(commands.Bot):
@@ -12,7 +13,9 @@ class Bot(commands.Bot):
         )
         self.startup_cogs = [
             "cogs.basic",
+            "cogs.spotify"
         ]
+        self.main_logger = logging.getLogger('rbpot.main')
     
     def get_uptime(self, *, brief=False, which=None):
         now = datetime.datetime.utcnow()
@@ -35,24 +38,28 @@ class Bot(commands.Bot):
     
 
     async def event_ready(self):
-        print(f'---------------------------')
-        print(f'Logged in as {self.nick}')
-        print(f'User id is {self.user_id}')
-        print(f'---------------------------')
+        self.main_logger.info(f'---------------------------')
+        self.main_logger.info(f'Logged in as {self.nick}')
+        self.main_logger.info(f'User id is {self.user_id}')
+        self.main_logger.info(f'---------------------------')
         for cog in self.startup_cogs:
             try:
                 self.load_module(cog)
+                self.main_logger.info(f'Loaded module: {cog}')
             except Exception as e:
-                print(f'Couldn\'t load module {cog},  {e}')
+                self.main_logger.error(f'Couldn\'t load module {cog},  {e}')
+        self.main_logger.info(f'Loading modules - DONE.')
         for channel in self.connected_channels:
-            print(f'Connecting to {channel}')
+            self.main_logger.info(f'Connected to {channel.name}')
+        self.main_logger.info(f'Joining channels - DONE.')
+                
         if not hasattr(self, 'bot_uptime'):
             self.bot_uptime = datetime.datetime.utcnow()
 
     async def event_command_error(self, ctx, exception):
         exception = getattr(exception, 'original', exception)
         tb = ''.join(traceback.format_exception(type(exception), exception, exception.__traceback__, chain=False))
-        print(f"---------------------------------------------------- \
+        self.main_logger.error(f"---------------------------------------------------- \
                 Command failed\n \
                 User: {ctx.author.name}\n \
                 Error: {type(exception).__name__}: {exception}\n \
@@ -62,5 +69,20 @@ class Bot(commands.Bot):
 
 
 if __name__ == "__main__":
+    # set up logging to file - see previous section for more details
+    logging.basicConfig(level=logging.DEBUG,
+                        format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+                        datefmt='%m-%d %H:%M',
+                        filename='./logs/rbotp.log',
+                        filemode='w')
+    # define a Handler which writes INFO messages or higher to the sys.stderr
+    console = logging.StreamHandler()
+    console.setLevel(logging.INFO)
+    # set a format which is simpler for console use
+    formatter = logging.Formatter('%(name)-12s: %(levelname)-8s %(message)s')
+    # tell the handler to use this format
+    console.setFormatter(formatter)
+    # add the handler to the root logger
+    logging.getLogger('').addHandler(console)
     bot = Bot()
     bot.run()
