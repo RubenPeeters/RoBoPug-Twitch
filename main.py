@@ -15,7 +15,7 @@ class Bot(commands.Bot):
             "cogs.basic",
             "cogs.spotify"
         ]
-        self.main_logger = logging.getLogger('rbpot.main')
+        self.main_logger = logging.getLogger('RBotP.main')
     
     def get_uptime(self, *, brief=False, which=None):
         now = datetime.datetime.utcnow()
@@ -59,7 +59,7 @@ class Bot(commands.Bot):
     async def event_command_error(self, ctx, exception):
         exception = getattr(exception, 'original', exception)
         tb = ''.join(traceback.format_exception(type(exception), exception, exception.__traceback__, chain=False))
-        self.main_logger.error(f"---------------------------------------------------- \
+        self.main_logger.error(f"\n---------------------------------------------------- \
                 Command failed\n \
                 User: {ctx.author.name}\n \
                 Error: {type(exception).__name__}: {exception}\n \

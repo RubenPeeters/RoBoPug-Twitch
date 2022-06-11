@@ -15,35 +15,36 @@ class spotify(commands.Cog):
         self.scope = "user-read-playback-state user-modify-playback-state"
         self.token = util.prompt_for_user_token(self.username, self.scope, os.environ['SPOTIPY_CLIENT_ID'], os.environ['SPOTIPY_CLIENT_SECRET'], os.environ['SPOTIPY_REDIRECT_URI'])
         self.spotify = spotipy.Spotify(auth=self.token)
-        self.spotify_logger = logging.getLogger('rbotp.spotify')
+        self.spotify_logger = logging.getLogger('RBotP.spotify')
     
-    @commands.command(aliases=['songrequest'])
-    async def sr(self, ctx: commands.Context, *, uri):
+    @commands.command(aliases=['sr'])
+    async def songrequest(self, ctx: commands.Context, *, uri):
         """Adds a song to the back of the queue"""
         try:
             song_info = self.spotify.add_to_queue(uri)
-            self.spotify_logger.info(f"Added song to queue!")
-            await ctx.send(f"Added song to queue!")
+            self.spotify_logger.info(f"Added song to queue.")
+            await ctx.send(f"Added song to queue.")
         except Exception as e:
             await ctx.send(f"Something went wrong, make sure you use a spotify uri, id or url.")
             self.spotify_logger.error(e)
     
     
-    @commands.command()
+    @commands.command(aliases=['song', 'np'])
     async def nowplaying(self, ctx: commands.Context):
         """Displays the currently playing song (spotify)"""
         try:
             song_info = self.spotify.currently_playing()
-            song_name = song_info['item']['name']
-            song_artist = song_info['item']['artists'][0]['name']
-            self.spotify_logger.info(f"Currently playing: {song_name} by {song_artist}!")
-            await ctx.send(f"Currently playing: {song_name} by {song_artist}!")
-        except Exception as e:
+            if song_info is not None:
+                song_name = song_info['item']['name']
+                song_artist = song_info['item']['artists'][0]['name']
+                self.spotify_logger.info(f"Currently playing: {song_name} by {song_artist}.")
+                await ctx.send(f"Currently playing: {song_name} by {song_artist}.")
+            else:
+                self.spotify_logger.info(f"Currently not playing a spotify song.")
+                await ctx.send(f"Currently not playing a spotify song.")
+        except Exeption as e:
             self.spotify_logger.error(e)
     
-
-    
-
 
 def prepare(bot: commands.Bot):
     bot.add_cog(spotify(bot))
