@@ -1,6 +1,35 @@
 # RoBoPug-Twitch
 Twitch bot for personal use
 
+## Proposed functionality
+- General information commands:
+  - [x] Discord
+  - [x] Help
+  - [x] Uptime
+  - [ ] User info
+  - [ ] ...
+- Spotify
+  - [x] Now playing
+  - [x] Song request
+- Games
+  - [ ] Chance games
+  - [ ] Prediction points
+  - [ ] Fights between users
+    - Strength based on followage/prediction_points/...
+    - Collection system
+    - Experience points, level system
+    - Character leveling
+    - ...
+- ~~Modding commands~~:(These are built-in in twitch now)
+  - [ ] ~~Predictions~~
+  - [ ] ~~(Un)ban~~
+  - [ ] ~~(Un)timeout~~
+  - [ ] ~~(Un)mod~~
+  - [ ] ~~(Un)follower mode~~
+  - [ ] ~~(Un)subscriber mode~~
+  - [ ] ...
+
+
 ## Installation
 
 ### Step 1
