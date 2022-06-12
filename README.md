@@ -28,3 +28,7 @@ Get your oauth token [here.](https://twitchapps.com/tmi/)
 ## How to run
 
 ```pipenv run python main.py```
+
+![RoBoPug](/data/images/RoBoPug.png)
+
+[Source](https://www.deviantart.com/bamshackle/art/Mech-Pug-Bot-514793864)
