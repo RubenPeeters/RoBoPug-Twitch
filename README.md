@@ -31,4 +31,4 @@ Get your oauth token [here.](https://twitchapps.com/tmi/)
 
 ![RoBoPug](/data/images/RoBoPug.png)
 
-[Source](https://www.deviantart.com/bamshackle/art/Mech-Pug-Bot-514793864)
+<font size="1">[Source](https://www.deviantart.com/bamshackle/art/Mech-Pug-Bot-514793864)</font> 

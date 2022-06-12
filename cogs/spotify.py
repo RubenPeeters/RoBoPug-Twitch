@@ -42,7 +42,7 @@ class spotify(commands.Cog):
             else:
                 self.spotify_logger.info(f"Currently not playing a spotify song.")
                 await ctx.send(f"Currently not playing a spotify song.")
-        except Exeption as e:
+        except Exception as e:
             self.spotify_logger.error(e)
     
 
