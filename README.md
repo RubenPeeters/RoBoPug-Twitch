@@ -20,7 +20,7 @@ Twitch bot for personal use
     - Experience points, level system
     - Character leveling
     - ...
-- ~~Modding commands~~:(These are built-in in twitch now)
+- ~~Modding commands~~: ***These are built-in in twitch now***
   - [ ] ~~Predictions~~
   - [ ] ~~(Un)ban~~
   - [ ] ~~(Un)timeout~~
