@@ -1,4 +1,4 @@
-# rbotp
+# RoBoPug-Twitch
 Twitch bot for personal use
 
 ## Installation
