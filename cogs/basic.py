@@ -7,7 +7,7 @@ from twitchio.ext import commands
 class basic(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
-        self.basic_logger = logging.getLogger('RBotP.basic')
+        self.basic_logger = logging.getLogger('RoBoPug.basic')
 
     @commands.Cog.event()
     async def event_message(self, message):

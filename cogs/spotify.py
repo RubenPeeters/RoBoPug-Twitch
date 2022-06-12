@@ -15,7 +15,7 @@ class spotify(commands.Cog):
         self.scope = "user-read-playback-state user-modify-playback-state"
         self.token = util.prompt_for_user_token(self.username, self.scope, os.environ['SPOTIPY_CLIENT_ID'], os.environ['SPOTIPY_CLIENT_SECRET'], os.environ['SPOTIPY_REDIRECT_URI'])
         self.spotify = spotipy.Spotify(auth=self.token)
-        self.spotify_logger = logging.getLogger('RBotP.spotify')
+        self.spotify_logger = logging.getLogger('RoBoPug.spotify')
     
     @commands.command(aliases=['sr'])
     async def songrequest(self, ctx: commands.Context, *, uri):
