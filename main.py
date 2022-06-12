@@ -16,7 +16,7 @@ class Bot(commands.Bot):
             "cogs.spotify"
         ]
         self.main_logger = logging.getLogger('RoBoPug.main')
-        self.chat_logs = open(f"./chat-logs/RoBoPug_{datetime.datetime.utcnow()}.chat". 'w')
+        self.chat_logs = open(f"./chat-logs/RoBoPug_{datetime.datetime.utcnow()}.chat", 'w')
     
     def get_uptime(self, *, brief=False, which=None):
         now = datetime.datetime.utcnow()
@@ -59,10 +59,6 @@ class Bot(commands.Bot):
 
     async def event_command_error(self, ctx, exception):
         self.main_logger.error(f'{exception}')
-
-    async def close(self):
-        await super().close()
-        await self.chat_logs.close()
 
 if __name__ == "__main__":
     # set up logging to file - see previous section for more details
