@@ -13,7 +13,7 @@ class basic(commands.Cog):
     async def event_message(self, message):
         if message.echo:
             return
-        # print(message.content)
+        self.bot.chat_logs.write(f'{message.author.name}: {message.content}\n')
     
     @commands.command()
     async def discord(self, ctx: commands.Context):
