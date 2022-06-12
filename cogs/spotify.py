@@ -22,7 +22,6 @@ class spotify(commands.Cog):
         """Adds a song to the back of the queue"""
         try:
             song_info = self.spotify.add_to_queue(uri)
-            self.spotify_logger.info(f"Added song to queue.")
             await ctx.send(f"Added song to queue.")
         except Exception as e:
             await ctx.send(f"Something went wrong, make sure you use a spotify uri, id or url.")
@@ -37,10 +36,8 @@ class spotify(commands.Cog):
             if song_info is not None:
                 song_name = song_info['item']['name']
                 song_artist = song_info['item']['artists'][0]['name']
-                self.spotify_logger.info(f"Currently playing: {song_name} by {song_artist}.")
                 await ctx.send(f"Currently playing: {song_name} by {song_artist}.")
             else:
-                self.spotify_logger.info(f"Currently not playing a spotify song.")
                 await ctx.send(f"Currently not playing a spotify song.")
         except Exception as e:
             self.spotify_logger.error(e)

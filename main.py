@@ -57,23 +57,14 @@ class Bot(commands.Bot):
             self.bot_uptime = datetime.datetime.utcnow()
 
     async def event_command_error(self, ctx, exception):
-        exception = getattr(exception, 'original', exception)
-        tb = ''.join(traceback.format_exception(type(exception), exception, exception.__traceback__, chain=False))
-        self.main_logger.error(f"\n---------------------------------------------------- \
-                Command failed\n \
-                User: {ctx.author.name}\n \
-                Error: {type(exception).__name__}: {exception}\n \
-                Traceback: {tb}\n \
-                ----------------------------------------------------```")
-
-
+        self.main_logger.error(f'{exception}')
 
 if __name__ == "__main__":
     # set up logging to file - see previous section for more details
     logging.basicConfig(level=logging.DEBUG,
                         format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
                         datefmt='%m-%d %H:%M',
-                        filename='./logs/rbotp.log',
+                        filename=f'./logs/RoBoPug_{datetime.datetime.utcnow()}.log',
                         filemode='w')
     # define a Handler which writes INFO messages or higher to the sys.stderr
     console = logging.StreamHandler()

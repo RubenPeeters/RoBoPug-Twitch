@@ -2,4 +2,4 @@
 Pipfile
 Pipfile.lock
 .cache*
-logs/rbotp.log
+logs/*.log
