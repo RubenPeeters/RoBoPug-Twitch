@@ -1,37 +1,63 @@
-## Welcome to GitHub Pages
+# RoBoPug-Twitch
+Twitch bot for personal use
 
-You can use the [editor on GitHub](https://github.com/RubenPeeters/RoBoPug-Twitch/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Proposed functionality
+- General information commands:
+  - [x] Discord
+  - [x] Help
+  - [x] Uptime
+  - [ ] User info
+  - [ ] ...
+- Spotify
+  - [x] Now playing
+  - [x] Song request
+- Games
+  - [ ] Chance games
+  - [ ] Prediction points
+  - [ ] Fights between users
+    - Strength based on followage/prediction_points/...
+    - Collection system
+    - Experience points, level system
+    - Character leveling
+    - ...
+- ~~Modding commands~~: ***These are built-in in twitch now***
+  - [ ] ~~Predictions~~
+  - [ ] ~~(Un)ban~~
+  - [ ] ~~(Un)timeout~~
+  - [ ] ~~(Un)mod~~
+  - [ ] ~~(Un)follower mode~~
+  - [ ] ~~(Un)subscriber mode~~
+  - [ ] ...
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+## Installation
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Step 1
 
-```markdown
-Syntax highlighted code block
+```pip install pipenv```
 
-# Header 1
-## Header 2
-### Header 3
+```pipenv --python 3.10```
 
-- Bulleted
-- List
+```pipenv install twitchio```
 
-1. Numbered
-2. List
+[Twitchio documentation](https://twitchio.dev/en/latest/)
 
-**Bold** and _Italic_ and `Code` text
+### Step 2
+Create a .env file in your working directory, that looks like this:
 
-[Link](url) and ![Image](src)
+```
+TMI_TOKEN=
+BOT_PREFIX=!
+CHANNEL=
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+and fill it in using your specific credentials. More info on how to get your token and registering your app can be found [here.](https://dev.twitch.tv/docs/authentication/register-app)
+Get your oauth token [here.](https://twitchapps.com/tmi/)
 
-### Jekyll Themes
+## How to run
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/RubenPeeters/RoBoPug-Twitch/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```pipenv run python main.py```
 
-### Support or Contact
+![RoBoPug](/data/images/RoBoPug.png)
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+<font size="1">[Source](https://www.deviantart.com/bamshackle/art/Mech-Pug-Bot-514793864)</font> 
