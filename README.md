@@ -57,7 +57,7 @@ Get your oauth token [here.](https://twitchapps.com/tmi/)
 ### Step 3
 Install PostgreSQL
 https://www.cherryservers.com/blog/how-to-install-and-setup-postgresql-server-on-ubuntu-20-04
-
+https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-database
 
 ## How to run
 
