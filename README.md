@@ -54,6 +54,11 @@ CHANNEL=
 and fill it in using your specific credentials. More info on how to get your token and registering your app can be found [here.](https://dev.twitch.tv/docs/authentication/register-app)
 Get your oauth token [here.](https://twitchapps.com/tmi/)
 
+### Step 3
+Install PostgreSQL
+https://www.cherryservers.com/blog/how-to-install-and-setup-postgresql-server-on-ubuntu-20-04
+
+
 ## How to run
 
 ```pipenv run python main.py```
