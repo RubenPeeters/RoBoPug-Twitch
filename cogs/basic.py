@@ -32,6 +32,7 @@ class basic(commands.Cog):
             self.basic_logger.error(e)
     
     
+    
 
 
 def prepare(bot: commands.Bot):

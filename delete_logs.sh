@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo Removing logs
-rm /mnt/c/Users/rebus/Documents/GitHub/rbotp/chat-logs/*
+rm ./chat-logs/*
 echo Logs removed
 echo Removing chat logs
-rm /mnt/c/Users/rebus/Documents/GitHub/rbotp/logs/*
+rm ./logs/*
 echo Chat logs removed

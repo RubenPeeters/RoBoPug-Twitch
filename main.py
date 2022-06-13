@@ -16,7 +16,7 @@ class Bot(commands.Bot):
             "cogs.spotify"
         ]
         self.main_logger = logging.getLogger('RoBoPug.main')
-        self.chat_logs = open(f"./chat-logs/RoBoPug_{datetime.datetime.utcnow()}.chat", 'w')
+        self.chat_logs = open(f"./logs/RoBoPug_{datetime.datetime.utcnow()}.chat", 'w')
     
     def get_uptime(self, *, brief=False, which=None):
         now = datetime.datetime.utcnow()
